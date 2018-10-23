@@ -1,0 +1,421 @@
+$lightpink: #FE9C79;
+$darkpink: #FA8072;
+$white: #fff;
+$darkgrey: #222;
+$lightgrey: #ddd;
+
+@mixin absolute-center {
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
+
+%button {
+    background: $lightpink;
+    border: none;
+    outline: none;
+    margin: 10px 5px;
+    border-radius: 50px;
+    transition: all .3s;
+    cursor: pointer;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: $white;
+    display: block;
+    padding: 10px 15px;
+
+    &:hover {
+        background: $darkpink;
+        transition: all .3s;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    line-height: 1.7;
+}
+
+a {
+    color: $lightpink;
+}
+
+.clear {
+    clear: both;
+}
+
+.form-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: $white;
+    border-radius: 3px;
+}
+
+img {
+    max-width: 100%;
+}
+
+::-moz-selection, ::selection { 
+    color: $white;
+    background: $lightpink;
+}
+
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: $white;
+    box-shadow: 0 0 10px $lightgrey;
+    text-align: right;
+    z-index: 9999;
+
+    ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: inline-block;
+
+            a {
+                display: block;
+                padding: 7px 15px;
+                height: 60px;
+                line-height: 46px;
+                text-decoration: none;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: $darkgrey;
+                transition: all .3s;
+
+                &:hover {
+                    background: $lightpink;
+                    transition: all .3s;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+#header {
+    height: calc( 100vh - 60px );
+    margin-top: 60px;
+    background: url(/pictures/header.jpg);
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+#toggle-css {
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-size: 20px;
+    background: $lightpink;
+    color: $white;
+    outline: none;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+
+    &:after {
+        content: "toggle css";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -140px;
+        background: $lightpink;
+        color: $white;
+        font-size: 11px;
+        text-transform: uppercase;
+        transition: all .3s;
+        padding: 5px 10px;
+        opacity: 0;
+        border-radius: 30px;
+    }
+
+    &:hover {
+        &:after {
+            opacity: 1;
+            right: -100px;
+            transition: all .3s;
+        }
+    }
+}
+
+
+.header-description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    width: 70%;
+
+    h1 {
+        font-size: 75px;
+        line-height: 1.1;
+        text-transform: uppercase;
+        font-weight: 900;
+        color: $lightpink;
+        margin: 0;
+
+        .bigger-text {
+            font-size: 105px;
+            color: $darkgrey;
+        }
+    }
+
+    .go-to {
+        @extend %button;
+    }
+}
+
+
+#content-wrapper {
+    background: linear-gradient($white, $lightgrey);
+
+    section {
+        width: 80%;
+        margin: 0 auto;
+        padding: 50px 0;
+
+        h2 {
+            font-weight: 300;
+        }
+    }
+}
+
+
+#new-posts {
+    article {
+        padding: 30px 30px 80px 30px;
+        background: $white;
+        border-radius: 5px 5px 0 0;
+        border-bottom: 5px solid $lightpink;
+        margin: 30px 0;
+        position: relative;
+        transition: all .3s;
+
+        h3 {
+            color: $darkgrey;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all .3s;
+            font-size: 25px;
+
+            &:after {
+                content: ".";
+                color:$lightpink; 
+            }
+        }
+
+        img {
+            max-height: 50vh;
+
+            &:nth-of-type(odd) {
+                float: left;
+                margin-right: 10px;
+            }
+
+            &:nth-of-type(even) {
+                float: right;
+                margin-left: 10px;
+            }
+        }
+
+        footer {
+            position: absolute;
+            height: 50px;
+            line-height: 50px;
+            background: $lightgrey;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0 30px;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        &:hover {
+            border-bottom-color: $darkpink;
+            transition: all .3s;
+
+            h3 {
+                color: $lightpink;
+                transition: all .3s;
+            }
+        }
+    }
+}
+
+#popular-posts {
+    text-align: center;
+
+    h2 {
+        text-align: left;
+    }
+
+    article {
+        width: 300px;
+        height: 300px;
+        background: pink;
+        display: inline-block;
+        vertical-align: top;
+        overflow: hidden;
+        border-radius: 100%;
+        margin: 30px 10px;
+        position: relative;
+        
+        img {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+            transition: all .3s;
+        }
+
+        .post-summary {
+            position: absolute;
+            background: rgba(255,255,255,0.6);
+            top: 0;
+            left: 0;
+            padding: 30px;
+            width: 100%;
+            height: 100%;
+            transition: all .3s;
+
+            h3 {
+                color: $darkgrey;
+                font-weight: 700;
+                text-transform: uppercase;
+                transition: all .3s;
+                font-size: 25px;
+                position: absolute;
+                @include absolute-center();
+                width: 100%;
+                padding: 0 30px;
+                margin: 0;
+    
+                &:after {
+                    content: ".";
+                    color:$lightpink; 
+                }
+            }
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+                transition: all .3s;
+            }
+
+            h3 {
+                color: $lightpink;
+            }
+
+            .post-summary {
+                background: rgba(255,255,255,0.8);
+                transition: all .3s;
+            }
+        }
+    }
+}
+
+#main-footer {
+    background: $darkgrey;
+    color: $white;
+    text-align: center;
+    font-weight: 300;
+
+    section {
+        h2 {
+            text-align: left;
+            color: $lightpink;
+        }
+
+        .footer-col {
+            width: 49%;
+            display: inline-block;
+            text-align: left;
+            padding: 0 20px;
+            vertical-align: top;
+
+            form {
+                textarea {
+                    min-height: 100px;
+                }
+
+                label {
+                    font-size: 13px;
+                    text-transform: uppercase;
+                }
+
+                #submit {
+                    @extend %button;
+                    min-width: 100px;
+                    float: right;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    #header {
+        .header-description {
+            width: 100%;
+            position: relative;
+            top: 80px;
+            left: 0;
+            padding-left: 10px;
+            transform: none;
+        }
+    }
+
+    #new-posts {
+        article {
+            padding: 15px 15px 65px 15px;
+
+            footer {
+                font-size: 13px;
+            }
+        }
+    }
+
+    #popular-posts {
+        article {
+            width: 280px;
+            height: 280px;
+        }
+    }
+
+    #main-footer {
+        section {
+            .footer-col {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
