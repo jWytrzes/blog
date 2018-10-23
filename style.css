@@ -110,7 +110,7 @@ nav ul li a:hover {
 #header {
   height: calc( 100vh - 60px);
   margin-top: 60px;
-  background: url(/pictures/header.jpg);
+  background: url(pictures/header.jpg);
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
